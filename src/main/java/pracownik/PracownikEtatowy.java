@@ -5,6 +5,7 @@ import pracownik.Element;
 
 public class PracownikEtatowy extends Pracownik implements Element{
 	
+	public PracownikEtatowy() {};
 	public PracownikEtatowy(int id, String imie, String nazwisko, int idPracownik, double zarobki) {wypisz(id, imie, nazwisko, idPracownik, zarobki);}
 	
 	public void wypisz(String nazwaZmiennej, Object zmienna)

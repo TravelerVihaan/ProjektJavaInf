@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import dane.ElementBuilder;
+import dane.Pracownik;
+import dane.PracownikBuilder;
 import okno.OknoGlowne;
 import pracownik.Element;
 import pracownik.PracownikEtatowy;
@@ -29,6 +32,7 @@ public class OknoPracownik extends JFrame implements ActionListener
     private JTextField tfZarobki;
     private JButton bWyswietl;
     private JButton bDodaj;
+    private JButton DodajDP;
     private JButton bEdytuj;
     private JButton bUsun;
     
@@ -74,10 +78,11 @@ private void wypelnijOkno()
     bDodaj = new JButton("dodaj");
     bEdytuj = new JButton("edytuj");
     bUsun = new JButton("usun");
+    DodajDP = new JButton("Builder Test");
     
     bWyswietl.addActionListener(this);
     bDodaj.addActionListener(this);
-    //bEdytuj.addActionListener(this);
+    bEdytuj.addActionListener(this);
     bUsun.addActionListener(this);
     
     JPanel p1 = new JPanel();
@@ -108,6 +113,7 @@ private void wypelnijOkno()
     p7.add(jlZarobki);
     p7.add(tfZarobki);
     p8.add(bDodaj);
+    p8.add(DodajDP);
     
 
     add(p1);
@@ -164,7 +170,16 @@ if (e.getSource() == bWyswietl)
         ustawJLabel(p); 
         }
     else zerujJLabel();
-    } 
+    }
+//---------------------------------------------------------------
+if (e.getSource() == DodajDP) {
+	PracownikBuilder budowniczy;
+	//Element pr = budowniczy.build();
+	
+	//pracownicy.dodaj(pr);
+	oknoGlowne.odswiez();
+	
+}
 //----------------------------------------------------------------------
 if (e.getSource() == bUsun) 
     {
@@ -194,8 +209,6 @@ if (e.getSource() == bEdytuj)
         Element p = pracownicy.zwroc(id);
         pracownik = p;
         ustawJLabel(p); 
-        oknoGlowne.odswiez();
-
         }
     } 
 //----------------------------------------------------------------------
